@@ -42,3 +42,5 @@ print(result.group())
 
 result = re.search("\d{4}","올해는 2025년 입니다")
 print(result.group())
+print(result.group())
+
