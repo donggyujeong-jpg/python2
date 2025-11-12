@@ -35,13 +35,17 @@ print(f"\n[4단계] 총 제품 개수: {total_count:,}")
 
 # 5. SELECT 테스트 - 처음 5개 제품 조회
 print("\n[5단계] SELECT 테스트 - 처음 5개 제품:")
-products = manager.select_all()[:5]
-for product in products:
+all_products = manager.select_all()
+first_five = all_products[:5]
+first_id = first_five[0][0]  # 첫 번째 ID 저장
+second_id = first_five[1][0]  # 두 번째 ID 저장
+
+for product in first_five:
     print(f"  ID: {product[0]}, 제품명: {product[1]}, 가격: {product[2]:,}원")
 
 # 6. SELECT 테스트 - ID로 조회
-print("\n[6단계] SELECT 테스트 - ID 1인 제품 조회:")
-product = manager.select_by_id(1)
+print("\n[6단계] SELECT 테스트 - 첫 번째 제품 ID로 조회:")
+product = manager.select_by_id(first_id)
 if product:
     print(f"  ID: {product[0]}, 제품명: {product[1]}, 가격: {product[2]:,}원")
 
@@ -60,17 +64,19 @@ for product in products[:3]:
     print(f"  ID: {product[0]}, 제품명: {product[1]}, 가격: {product[2]:,}원")
 
 # 9. UPDATE 테스트
-print("\n[9단계] UPDATE 테스트 - ID 1인 제품 정보 수정:")
-success = manager.update(1, product_name="테스트 제품", product_price=999999)
+print(f"\n[9단계] UPDATE 테스트 - ID {first_id}인 제품 정보 수정:")
+success = manager.update(first_id, product_name="🔥 특가상품! 테스트 제품", product_price=999999)
 if success:
-    product = manager.select_by_id(1)
+    product = manager.select_by_id(first_id)
     print(f"  수정됨: ID: {product[0]}, 제품명: {product[1]}, 가격: {product[2]:,}원")
 
 # 10. DELETE 테스트
-print("\n[10단계] DELETE 테스트 - ID 2인 제품 삭제:")
-success = manager.delete(2)
+print(f"\n[10단계] DELETE 테스트 - ID {second_id}인 제품 삭제:")
+success = manager.delete(second_id)
 if success:
-    print("  ✓ ID 2인 제품이 삭제되었습니다.")
+    print(f"  ✓ ID {second_id}인 제품이 삭제되었습니다.")
+    remaining = manager.get_count()
+    print(f"  현재 제품 개수: {remaining:,}")
 
 # 11. 최종 개수 확인
 final_count = manager.get_count()

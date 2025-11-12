@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML/CSS/JS 연습 페이지</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>웹 기초 연습 페이지</h1>
+      <p class="lead">HTML5 · CSS3 · JavaScript의 기본을 손으로 직접 실습해보세요.</p>
+    </div>
+  </header>
+
+  <nav class="container nav">
+    <a href="#html">HTML</a>
+    <a href="#css">CSS</a>
+    <a href="#js">JavaScript</a>
+  </nav>
+
+  <main class="container">
+    <section id="html">
+      <h2>HTML 기초</h2>
+      <p>HTML은 문서의 구조를 나타냅니다. 다음은 기본 요소 예시입니다.</p>
+      <article class="card">
+        <h3>리스트 예</h3>
+        <ul>
+          <li>HTML 요소들 (태그)</li>
+          <li>속성(attribute) — 예: &lt;a href=""&gt;</li>
+          <li>시맨틱 태그: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;footer&gt;</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="css">
+      <h2>CSS 기초</h2>
+      <p>CSS는 스타일을 담당합니다. 아래 버튼을 눌러 스타일을 바꿔보세요.</p>
+      <div class="card">
+        <h3>스타일 예제</h3>
+        <p class="muted">이 텍스트는 CSS로 스타일링 되어 있습니다.</p>
+        <button id="themeBtn" class="btn">테마 변경</button>
+      </div>
+    </section>
+
+    <section id="js">
+      <h2>JavaScript 기초</h2>
+      <p>다음은 간단한 상호작용 예제들입니다.</p>
+
+      <div class="card">
+        <h3>카운터</h3>
+        <div class="counter">
+          <button id="decr" class="btn small">-</button>
+          <span id="count">0</span>
+          <button id="incr" class="btn small">+</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>배경색 변경</h3>
+        <input id="colorInput" type="color" value="#f5f5f5">
+        <button id="applyColor" class="btn">적용</button>
+      </div>
+
+      <div class="card">
+        <h3>날짜 표시</h3>
+        <button id="showDate" class="btn">현재 시간 보기</button>
+        <div id="dateOutput" class="muted"></div>
+      </div>
+
+      <div class="card">
+        <h3>간단한 계산기(더하기)</h3>
+        <input id="a" type="number" placeholder="숫자 1">
+        <input id="b" type="number" placeholder="숫자 2">
+        <button id="sumBtn" class="btn">더하기</button>
+        <div id="sumOutput" class="muted"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>학습용 예제 페이지 — 로컬에서 열어 실습하세요.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
