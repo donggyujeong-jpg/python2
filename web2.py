@@ -16,7 +16,7 @@ for i in range(0,10):
 
     #검색
     list = soup.find_all("span", attrs={"data-role": "list-title-text"})   
-    for tag in list:
+    for tag in list:        
         title = tag.text.strip()    
         print(title)        
         f.write(title + "\n")
